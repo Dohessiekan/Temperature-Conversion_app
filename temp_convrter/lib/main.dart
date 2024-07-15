@@ -47,6 +47,12 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
     });
   }
 
+  void _clearHistory() {
+    setState(() {
+      _history.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,6 +113,14 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
             Text(
               'Conversion History',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: _clearHistory,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white, // Updated to backgroundColor
+              ),
+              child: Text('Clear History'),
             ),
             const SizedBox(height: 10),
             Expanded(
